@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf1ecc1b-8833-4481-b2c6-a7d247adfdcf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="bf1ecc1b-8833-4481-b2c6-a7d247adfdcf" name="Default Changelist" comment="first commit.&#10;202002281941">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +45,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/qrcode" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -56,17 +60,17 @@
     <property name="ts.external.directory.path" value="D:\WKH\Develop\project\js\gamma\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WKH\Develop\project\js\gamma\src\assets\qrcode" />
-      <recent name="D:\WKH\Develop\project\js\gamma\test" />
-      <recent name="D:\WKH\Develop\project\js\gamma\src\app\layout\merchant" />
-      <recent name="D:\WKH\Develop\project\js\gamma\src\app\layout\dataquery" />
-      <recent name="D:\WKH\Develop\project\js\gamma\src\app\core" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\WKH\Develop\project\js\gamma\src\app\layout\dataquery" />
       <recent name="D:\WKH\Develop\project\js\gamma" />
       <recent name="D:\WKH\Develop\project\js\gamma\src\app\core" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WKH\Develop\project\js\gamma" />
+      <recent name="D:\WKH\Develop\project\js\gamma\src\assets\qrcode" />
+      <recent name="D:\WKH\Develop\project\js\gamma\test" />
+      <recent name="D:\WKH\Develop\project\js\gamma\src\app\layout\merchant" />
+      <recent name="D:\WKH\Develop\project\js\gamma\src\app\layout\dataquery" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -143,8 +147,16 @@
       <workItem from="1582287418682" duration="26525000" />
       <workItem from="1582804572292" duration="872000" />
       <workItem from="1582888515826" duration="618000" />
-      <workItem from="1582889544792" duration="539000" />
+      <workItem from="1582889544792" duration="3113000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit.&#10;202002281941">
+      <created>1582890326852</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582890326852</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,18 +176,23 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="first commit.&#10;202002281941" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit.&#10;202002281941" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#Inspections" timestamp="1582890972687">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1582890972687" />
     <state x="552" y="178" key="#Notifications" timestamp="1582805410531">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1582805410531" />
-    <state x="428" y="79" key="CommitChangelistDialog2" timestamp="1582890008939">
+    <state x="428" y="79" key="CommitChangelistDialog2" timestamp="1582890514668">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="334" y="73" key="CommitChangelistDialog2/0.0.1500.960@0.0.1500.960" timestamp="1579007113224" />
-    <state x="428" y="79" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582890008939" />
+    <state x="428" y="79" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582890514668" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1582805410875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -185,14 +202,30 @@
     </state>
     <state x="531" y="236" key="FileChooserDialogImpl/0.0.1500.960@0.0.1500.960" timestamp="1579182675767" />
     <state x="680" y="256" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581507385744" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1582891274521">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582891274521" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1582891274521">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582891274521" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1582891274521">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582891274521" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1582891274521">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582891274521" />
     <state x="736" y="230" key="RollbackChangesDialog" timestamp="1582805425516">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="736" y="230" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582805425516" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1582889923617">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1582890845606">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582889923617" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582890845606" />
     <state x="701" y="254" key="VcsDiffUtil.ChangesDialog" timestamp="1582805341536">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -201,6 +234,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="778" y="254" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582890005181" />
+    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582890524102">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582890524102" />
     <state x="256" y="117" width="641" height="801" key="find.popup" timestamp="1579004700820">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
