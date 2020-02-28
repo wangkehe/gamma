@@ -1,0 +1,168 @@
+<nz-card nzTitle="数据管理" [nzBordered]="false">
+  <div nz-row>
+<!--    <div nz-col nzSpan="6" style="width: 180px;padding-bottom: 20px">-->
+      <nz-select nz-col nzSpan="6" nzShowSearch nzAllowClear nzPlaceHolder="请选择系统类型" [(ngModel)]="selectedValue" (ngModelChange)="changeSelectValue(selectedValue)" >
+        <nz-option nzLabel="所有系统" nzValue=0></nz-option>
+        <nz-option nzLabel="OFCR|核心系统" nzValue=1></nz-option>
+        <nz-option nzLabel="ATMP|ATM系统" nzValue=2></nz-option>
+        <nz-option nzLabel="LOAN|信贷系统" nzValue=3></nz-option>
+        <nz-option nzLabel="CETS|支付系统" nzValue=4></nz-option>
+      </nz-select>
+<!--    </div>-->
+    <div nz-col nzSpan="6" nzOffset="4">
+      <label>
+        <input nz-input placeholder="搜索数据" [(ngModel)]="inputSearchValue" (ngModelChange)="changeInputValue(inputSearchValue)" />
+      </label>
+    </div>
+  </div>
+  <nz-table #schData nzSize="middle" [nzData]="this.table.itemsFiltered" [nzPageSizeOptions]=[10,20,100] [nzShowSizeChanger]="true">
+    <thead>
+    <tr>
+      <th>表名称</th>
+      <th>表描述</th>
+      <th>导入时间</th>
+      <th>数据日期</th>
+      <th>数据类型</th>
+      <th>匹配文件</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let sch of schData.data; let i = index" (dblclick)="openNewDialog()">
+      <td>{{sch.tblName}}</td>
+      <td>--</td>
+      <td>{{sch.lastImportDate| date:'yyyy-MM-dd HH:mm:ss'}}</td>
+      <td>{{sch.fileDate}}</td>
+      <td>{{sch.fileType| fileType}}</td>
+      <td>{{sch.filenameRule}}</td>
+    </tr>
+    </tbody>
+
+  </nz-table>
+</nz-card>
+
+<!--
+
+<section class="content">
+  <div class="box">
+    <div class="box-header">
+      <div class="form-horizontal">
+        <div class="form-group">
+          <label class="col-sm-1 control-label">所属系统</label>
+          <div class="col-sm-3">
+            <select class="form-control">
+              <option>所有系统</option>
+              <option>OFCR|核心系统</option>
+              <option>ATMP|ATM系统</option>
+              <option>LOAN|信贷系统</option>
+              <option>CETS|支付系统</option>
+            </select>
+          </div>
+          <div *ngIf="isSearch">
+            <label class="col-sm-1 control-label" for="Search">搜索</label>
+            <div class="col-sm-3">
+              <input type="text" id="Search" class="form-control" title="Search" [(ngModel)]="table.searchValue"/>
+              &lt;!&ndash;[(ngModel)]="custTable.searchValue.username"&ndash;&gt;
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="box-body">
+      <div class="row">
+        <div class="col-xs-12">
+          <table class="table table-condensed table-hover">
+            <thead>
+            <tr>
+              <th>表名称</th>
+              <th>表描述</th>
+              <th>导入时间</th>
+              <th>数据日期</th>
+              <th>数据类型</th>
+              <th>匹配文件</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr *ngIf="!table.totalRows">
+              <td colspan="4" class="text-center">No records found.</td>
+            </tr>
+
+            <tr *ngFor="let sch of table.itemsOnCurrentPage; let i = index" (dblclick)="openNewDialog()">
+              &lt;!&ndash;<td>{{(custTable.currentPageIndex - 1)*custTable.pageSize + i + 1}}</td>  &lt;!&ndash; 序号 &ndash;&gt;&ndash;&gt;
+              <td>{{sch.tblName}}</td>
+              <td>&#45;&#45;</td>
+              <td>{{sch.lastImportDate| date:'yyyy-MM-dd HH:mm:ss'}}</td>
+              <td>{{sch.fileDate}}</td>
+              <td>{{sch.fileType| fileType}}</td>
+              <td>{{sch.filenameRule}}</td>
+            </tr>
+            </tbody>
+          </table>
+
+
+        </div>
+      </div>
+
+      <app-pagination [maxPageIndex]="table.maxPageIndex" [tableSize]="table.items.length"
+                      (pageNumberChanged)="table.currentPageIndex = $event">
+      </app-pagination>
+
+    </div>
+  </div>
+</section>
+
+&lt;!&ndash; 添加查询账户 &ndash;&gt;
+<div class="modal fade" [class.in]="isDialogOpen" [style.display]="isDialogOpen ? 'block' : 'none'">&lt;!&ndash;&ndash;&gt;
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="closeNewDialog()"><span>×</span></button>
+        <div class="form-horizontal">
+          <h3><b>OFCR_TD_DEP_MAST</b> 导入详细信息</h3>
+        </div>
+      </div>
+      <form class="">
+        <div class="modal-body cod-xs-12">
+          <div class="row">
+            <div class="col-xs-12">
+              <table class="table table-condensed table-hover">
+                <thead>
+                <tr>
+                  <th>开始时间</th>
+                  <th>结束时间</th>
+                  <th>数据日期</th>
+                  <th>导入文件名称</th>
+                  <th>文件大小</th>
+                  <th>记录数</th>
+                  <th>日志文件</th>
+                  <th>错误文件</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>20190201 14:22:21</td>
+                  <td>20190201 14:22:24</td>
+                  <td>20190131</td>
+                  <td>D:\\data\\imp\\s_ofcr_td_dep_mast_all_20190131.del</td>
+                  <td>42541</td>
+                  <td>4800</td>
+                  <td>查看</td>
+                  <td>查看</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="reset" class="btn btn-default" style="width:100px">关  闭</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+-->

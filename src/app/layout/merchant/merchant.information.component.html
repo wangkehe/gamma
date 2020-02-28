@@ -1,0 +1,156 @@
+<nz-card nzTitle="收单商户信息管理" [nzBordered]="false">
+  <nz-card-tab>
+    <nz-tabset [(nzSelectedIndex)]="tabIndex">
+      <nz-tab nzTitle="基本信息"></nz-tab>
+      <nz-tab nzTitle="详细信息"></nz-tab>
+    </nz-tabset>
+  </nz-card-tab>
+  <div *ngIf="tabIndex===0">
+  <nz-row nzGutter="16">
+    <nz-select nz-col nzSpan="4" nzShowSearch nzAllowClear nzPlaceHolder="网点号" [(ngModel)]="selectBankCode" (ngModelChange)="changeBankCode(selectBankCode)" >
+      <nz-option nzLabel="全部网点" nzValue="2430000"></nz-option>
+      <nz-option nzLabel="2430001|营业部" nzValue="2430001"></nz-option>
+      <nz-option nzLabel="2430002|建设西路分理处" nzValue="2430002"></nz-option>
+      <nz-option nzLabel="2430003|三合分理处" nzValue="2430003"></nz-option>
+      <nz-option nzLabel="2430004|大河分理处" nzValue="2430004"></nz-option>
+      <nz-option nzLabel="2430005|周覃支行" nzValue="2430005"></nz-option>
+      <nz-option nzLabel="2430006|三洞分理处" nzValue="2430006"></nz-option>
+      <nz-option nzLabel="2430007|廷牌分理处" nzValue="2430007"></nz-option>
+      <nz-option nzLabel="2430008|丰乐支行" nzValue="2430008"></nz-option>
+      <nz-option nzLabel="2430009|合江支行" nzValue="2430009"></nz-option>
+      <nz-option nzLabel="2430010|普安支行" nzValue="2430010"></nz-option>
+      <nz-option nzLabel="2430011|九阡支行" nzValue="2430011"></nz-option>
+      <nz-option nzLabel="2430012|中和支行" nzValue="2430012"></nz-option>
+      <nz-option nzLabel="2430013|都江支行" nzValue="2430013"></nz-option>
+      <nz-option nzLabel="2430014|城东分理处" nzValue="2430014"></nz-option>
+      <nz-option nzLabel="2430015|塘州分理处" nzValue="2430015"></nz-option>
+      <nz-option nzLabel="2430016|人和盛世分理处" nzValue="2430016"></nz-option>
+      <!--<nz-option *ngFor="let account of queryAccounts" nzLabel="{{account}}" nzValue="{{account}}"></nz-option>-->
+    </nz-select>
+    <nz-select nz-col nzSpan="4" nzShowSearch nzAllowClear nzPlaceHolder="商户类型" [(ngModel)]="selectMchtProp" (ngModelChange)="changeMchtProp(selectMchtProp)" >
+      <nz-option nzLabel="小微商户" nzValue="小微"></nz-option>
+      <nz-option nzLabel="特约商户" nzValue="特约"></nz-option>
+      <nz-option nzLabel="助农商户" nzValue="助农"></nz-option>
+      <!--<nz-option *ngFor="let account of queryAccounts" nzLabel="{{account}}" nzValue="{{account}}"></nz-option>-->
+    </nz-select>
+    <div nz-col nzSpan="6" nzOffset="2">
+      <label>
+        <input nz-input placeholder="搜索数据" [(ngModel)]="inputSearchValue" (ngModelChange)="changeInputValue(inputSearchValue)" />
+      </label>
+    </div>
+  </nz-row>
+  <nz-table #mchtInfo nzSize="middle" [nzData]="this.table.itemsFiltered" [nzPageSizeOptions]=[10,20,100] [nzShowSizeChanger]="true" [nzShowTotal]="totalTemplate">
+    <thead (nzSortChange)="sort($event)" nzSingleSort>
+    <tr>
+      <th>序号</th>
+      <th>网点号</th>
+      <th>商户号</th>
+      <th>商户名称</th>
+      <th>商户类型</th>
+      <th>注册时间</th>
+      <th>注册地址</th>
+      <th>上交易日</th>
+      <th nzShowSort nzSortKey="totalCountOfMonth">本月交易笔数</th>
+      <th nzShowSort nzSortKey="sumTxnAmtOfMonth">本月交易金额</th>
+      <th nzShowSort nzSortKey="totalCountOfYear" >本年累计交易笔数</th>
+      <th nzShowSort nzSortKey="sumTxnAmtOfYear">本年累计交易金额</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let info of mchtInfo.data; let i = index" (click)="selectRecord(info)" (dblclick)="showDetail(info)">
+      <td>{{(mchtInfo.nzPageIndex- 1) * mchtInfo.nzPageSize + i + 1}}</td>
+      <td>{{info.bankCode}}</td>
+      <td>{{info.merchantId}}</td>
+      <td>{{info.merchantName}}</td>
+      <td>{{info.mchtProp}}</td>
+      <td>{{info.regDate}}</td>
+      <td>{{info.address}}</td>
+      <td>{{info.lastTxnDate}}</td>
+      <td>{{info.totalCountOfMonth}}</td>
+      <td>{{info.sumTxnAmtOfMonth}}</td>
+      <td>{{info.totalCountOfYear}}</td>
+      <td>{{info.sumTxnAmtOfYear}}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+  <ng-template #totalTemplate let-total>在{{this.table.totalRows}} 条记录中找到{{total}}个</ng-template>
+  </div>
+
+  <div *ngIf="tabIndex===1">
+    <nz-collapse>
+      <ng-template #mchtDetail>
+        <div nz-row nzType="flex" nzJustify="start" nzAlign="middle">
+          <div nz-col>   <!--二维码-->
+            <nz-avatar [nzSize]="120" nzSrc="{{qrImagePath}}" nzShape="square"></nz-avatar>
+          </div>
+          <div nz-col nzSpan="16" style="margin-left: 18px;">
+            <div nz-row nzType="flex" nzJustify="start">
+              <div nz-col nzSpan="6" style="font-size: 18px;">
+                {{this.selectedRecord.merchantName}}
+              </div>
+              <div nz-col nzSpan="2"></div>
+              <nz-button-group [nzSize]="'small'" style="padding-left: 32px;">
+                <button nz-button (click)="selectRecord(-1)"><i nz-icon nzType="left"></i></button>
+                <button nz-button (click)="selectRecord(+1)"><i nz-icon nzType="right"></i></button>
+              </nz-button-group>
+            </div>
+
+            <div nz-row style="font-size: 14px; color: rgba(0,0,0,0.45);">
+              {{this.selectedRecord.merchantId}}
+            </div>
+            <div nz-row style="font-size: 14px; color: rgba(0,0,0,0.45);">
+              {{this.selectedRecord.mchtProp}}商户
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <nz-collapse-panel nzHeader="商户详细信息" nzActive="true">
+        <div nz-row>
+            <nz-descriptions [nzTitle]="mchtDetail">
+              <nz-descriptions-item nzTitle="所属网点">{{this.selectedRecord.bankCode}}</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="商户简称">{{this.selectedRecord.merchantName}}</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="客户经理">张小三</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="注册时间">{{this.selectedRecord.regDate}}</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="所属区域">三都县</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="经营地址">{{this.selectedRecord.address}}</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="上交易日">{{this.selectedRecord.lastTxnDate}}</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="商户证件类型"></nz-descriptions-item>
+              <nz-descriptions-item nzTitle="商户证件号码"></nz-descriptions-item>
+              <nz-descriptions-item nzTitle="联系人姓名"></nz-descriptions-item>
+              <nz-descriptions-item nzTitle="联系人手机"></nz-descriptions-item>
+              <nz-descriptions-item nzTitle="法人姓名"></nz-descriptions-item>
+              <nz-descriptions-item nzTitle="法人电话"></nz-descriptions-item>
+              <nz-descriptions-item nzTitle="法人证件类型"></nz-descriptions-item>
+              <nz-descriptions-item nzTitle="法人证件号码"></nz-descriptions-item>
+
+              <nz-descriptions-item nzTitle="结算标志">T0</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="账户户名">T0</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="账户账号">T0</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="账户证件类型">T0</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="账户证件号码">T0</nz-descriptions-item>
+
+              <!-- 交易分析 -->
+              <nz-descriptions-item nzTitle="上日交易笔数">T0</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="上日交易金额">T0</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="本周交易笔数">T0</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="本周交易金额">T0</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="本年交易笔数">T0</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="本年交易金额">T0</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="最小交易金额">T0</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="最大交易金额">T0</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="平均交易金额">T0</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="消费交易占比"></nz-descriptions-item>
+              <nz-descriptions-item nzTitle="微信交易占比"></nz-descriptions-item>
+              <nz-descriptions-item nzTitle="支付宝交易占比"></nz-descriptions-item>
+              <nz-descriptions-item nzTitle="银联交易占比"></nz-descriptions-item>
+
+            </nz-descriptions>
+        </div>
+      </nz-collapse-panel>
+
+      <nz-collapse-panel nzHeader="交易明细">
+      </nz-collapse-panel>
+    </nz-collapse>
+  </div>
+</nz-card>

@@ -1,0 +1,11 @@
+[nz-button] {
+  margin-right: 8px;
+}
+.qrContainer {
+  width: 120px;
+  height: 120px;
+  /*background: url("../../../assets/qrcode/14377282-143600006100730140.png");*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}

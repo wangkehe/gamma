@@ -1,0 +1,213 @@
+<div nz-row [nzGutter]="16" style="background-color: rgb(240, 242, 245)">
+  <div nz-col [nzSpan]="6">
+    <nz-card [nzBordered]="false">
+      <div style="color: rgba(0, 0, 0, 0.45); font-size: 14px;">
+        交易金额
+      </div>
+      <div style="color: rgba(0, 0, 0, 0.85); font-size: 30px;">
+        ¥ 5,532,252.90
+      </div>
+      <div>
+        日同比 <span style="color: green;">-278,538.23</span>‬<i style="color: green;" nz-icon [nzType]="'caret-down'"></i>
+      </div>
+      <div style="margin-bottom: 10px;">
+        周同比 <span style="color: red;">+78,538.23</span>‬<i style="color: red;" nz-icon [nzType]="'caret-up'"></i>
+      </div>
+      <div style="border-top: 1px solid #ccc; padding-top: 10px;">
+        本月累计 ¥1,634.82万元
+      </div>
+    </nz-card>
+  </div>
+  <div nz-col [nzSpan]="6">
+    <nz-card [nzBordered]="false">
+      <div style="color: rgba(0, 0, 0, 0.45); font-size: 14px;">
+        交易笔数
+      </div>
+      <div style="color: rgba(0, 0, 0, 0.85); font-size: 30px;">
+        13,974
+      </div>
+      <div>
+        日同比 <span style="color: red;">+1016</span>‬<i style="color: red;" nz-icon [nzType]="'caret-up'"></i>
+      </div>
+      <div style="margin-bottom: 10px;">
+        周同比 <span style="color: green;">-521</span>‬<i style="color: green;" nz-icon [nzType]="'caret-down'"></i>
+      </div>
+      <div style="border-top: 1px solid #ccc; padding-top: 10px;">
+        本月累计 39.98万笔
+      </div>
+    </nz-card>
+  </div>
+  <div nz-col [nzSpan]="6">
+    <nz-card [nzBordered]="false">
+      <div style="color: rgba(0, 0, 0, 0.45); font-size: 14px;">
+        日活商户
+      </div>
+      <div style="color: rgba(0, 0, 0, 0.85); font-size: 30px;">
+        1,690
+      </div>
+      <div echarts [options]="chartOption" style="height:52px;">
+      </div>
+      <div style="border-top: 1px solid #ccc; padding-top: 10px;">
+        月活商户数 2964
+      </div>
+    </nz-card>
+  </div>
+  <div nz-col [nzSpan]="6">
+    <nz-card [nzBordered]="false">
+      <div style="color: rgba(0, 0, 0, 0.45); font-size: 14px;">
+        商户活跃率
+      </div>
+      <div style="color: rgba(0, 0, 0, 0.85); font-size: 30px;">
+        59.77 %
+      </div>
+      <div  style="height:52px;">
+        <nz-progress [nzPercent]="59.77" [nzShowInfo]="false"></nz-progress>
+      </div>
+      <div style="border-top: 1px solid #ccc; padding-top: 10px;">
+        比上月 +1.45%<i style="color: red;" nz-icon [nzType]="'caret-up'"></i>
+      </div>
+    </nz-card>
+  </div>
+</div>
+<div style="background-color: rgb(240, 242, 245); height: 18px;"></div>
+<div style="background-color: rgb(240, 242, 245);margin-top: 18px;">
+  <nz-card [nzBordered]="false" nzTitle="网点交易情况">
+    <nz-card-tab>
+      <nz-tabset [(nzSelectedIndex)]="tabIndex" [nzTabBarExtraContent]="extraTemplate">
+        <nz-tab nzTitle="交易情况">
+        </nz-tab>
+        <nz-tab nzTitle="活跃商户">
+        </nz-tab>
+      </nz-tabset>
+    </nz-card-tab>
+    <ng-template #extraTemplate>
+      <button nz-button>上日</button>
+      <button nz-button>本周</button>
+      <button nz-button>本月</button>
+      <button nz-button>全年</button>
+    </ng-template>
+    <div *ngIf="tabIndex==0" nz-row [nzGutter]="16">
+      <div nz-col [nzSpan]="18" echarts [options]="txnAmtOption" style="height: 450px;">
+
+      </div>
+      <div nz-col [nzSpan]="6">
+        <h4 style="padding: 0 40px;">网点交易排名(万元)</h4>
+        <ul>
+          <li>
+            <span class="number active">1</span>
+            <span class="title">营业部</span>
+            <span class="value">152.18</span>
+          </li>
+          <li>
+            <span class="number active">2</span>
+            <span class="title">城东</span>
+            <span class="value">122.68</span>
+          </li>
+          <li>
+            <span class="number active">3</span>
+            <span class="title">建西</span>
+            <span class="value">49.42</span>
+          </li>
+          <li>
+            <span class="number">4</span>
+            <span class="title">廷牌</span>
+            <span class="value">37.64</span>
+          </li>
+          <li>
+            <span class="number">5</span>
+            <span class="title">大河</span>
+            <span class="value">34.97</span>
+          </li>
+          <li>
+            <span class="number">6</span>
+            <span class="title">都江</span>
+            <span class="value">26.79</span>
+          </li>
+          <li>
+            <span class="number">7</span>
+            <span class="title">塘州</span>
+            <span class="value">17.25</span>
+          </li>
+          <li>
+            <span class="number">8</span>
+            <span class="title">三洞</span>
+            <span class="value">16.99</span>
+          </li>
+          <li>
+            <span class="number">9</span>
+            <span class="title">丰乐</span>
+            <span class="value">15.71</span>
+          </li>
+          <li>
+            <span class="number">10</span>
+            <span class="title">普安</span>
+            <span class="value">13.81</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div *ngIf="tabIndex==1" nz-row [nzGutter]="16">
+      <div nz-col [nzSpan]="18" echarts [options]="activeMchtOption" style="height: 450px;">
+
+      </div>
+      <div nz-col [nzSpan]="6">
+        <h4 style="padding: 0 40px;">网点日活商户</h4>
+        <ul>
+          <li>
+            <span class="number active">1</span>
+            <span class="title">营业部</span>
+            <span class="value">152.18</span>
+          </li>
+          <li>
+            <span class="number active">2</span>
+            <span class="title">城东</span>
+            <span class="value">122.68</span>
+          </li>
+          <li>
+            <span class="number active">3</span>
+            <span class="title">建西</span>
+            <span class="value">49.42</span>
+          </li>
+          <li>
+            <span class="number">4</span>
+            <span class="title">廷牌</span>
+            <span class="value">37.64</span>
+          </li>
+          <li>
+            <span class="number">5</span>
+            <span class="title">大河</span>
+            <span class="value">34.97</span>
+          </li>
+          <li>
+            <span class="number">6</span>
+            <span class="title">都江</span>
+            <span class="value">26.79</span>
+          </li>
+          <li>
+            <span class="number">7</span>
+            <span class="title">塘州</span>
+            <span class="value">17.25</span>
+          </li>
+          <li>
+            <span class="number">8</span>
+            <span class="title">三洞</span>
+            <span class="value">16.99</span>
+          </li>
+          <li>
+            <span class="number">9</span>
+            <span class="title">丰乐</span>
+            <span class="value">15.71</span>
+          </li>
+          <li>
+            <span class="number">10</span>
+            <span class="title">普安</span>
+            <span class="value">13.81</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nz-card>
+</div>
+

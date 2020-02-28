@@ -1,0 +1,146 @@
+
+
+.cust-card {
+  border-radius: 3px;
+  border: 1px solid rgb(232, 232, 232);
+  box-sizing: border-box;
+  color: rgba(0,0,0,0.65);
+  margin-bottom: 12px;
+  padding: 0;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.cust-card:hover {
+  border: 1px solid #1890ff;
+  /*outline: thin dotted #333;*/
+  /*outline-offset: -2px;*/
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.05),0 0 8px rgba(82,168,236,.6);
+}
+.cust-card:checked {
+  border: 1px solid #1890ff;
+}
+
+.cust-card-body {
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.cust-card-img {
+  font-weight: bold;
+  margin-right: 6px;
+  flex-direction: column;
+}
+
+.cust-card-img img {
+  width: 60px;
+  height: 60px;
+  border-radius:50%;
+}
+
+.cust-card-img p {
+  width: 60px;
+  margin: 8px 0 0 0;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  overflow: hidden;/*设置隐藏*/
+}
+
+.cust-card-content {
+  margin-left: 12px;
+  padding: 0;
+}
+
+.cust-card-info {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgb(232, 232, 232);
+  font-weight: bold;
+  transition: all .3s ease;
+}
+
+.cust-card:hover .cust-card-info {
+  border-top: 1px solid #1890ff;
+  transition: all .3s ease;
+}
+.cust-card-info ul {
+  padding: 12px;
+  margin: 0;
+}
+
+p {
+  margin: 1px 0;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  overflow: hidden;/*设置隐藏*/
+}
+@media screen and (min-width: 768px) {
+  /*::ng-deep .ant-select {*/
+  /*  display: none;*/
+  /*}*/
+  .selectValue {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  ::ng-deep .ant-tabs-nav {
+    display: none;
+  }
+
+  ::ng-deep thead tr {
+    display: none;
+  }
+
+  ::ng-deep thead th {
+    display: none;
+  }
+
+  ::ng-deep tbody tr:checked {
+    background-color:rgb(230, 247, 255);
+  }
+
+  ::ng-deep .ant-table-tbody > tr > td {
+    padding: 0;
+    border: none;
+  }
+
+  ::ng-deep .ant-table-tbody > tr:nth-child(odd) {
+    background-color:rgb(230, 247, 255);
+    /*border-bottom: 12px;*/
+  }
+
+  /*::ng-deep .ant-table-tbody > tr {*/
+  /*  border-bottom: 1px solid #222;*/
+  /*}*/
+
+  ::ng-deep tbody tr td {
+    display: flex;
+    padding: 0;
+    /*padding-left: 50%;*/
+  }
+
+  span:first-child:before {
+    content: attr(data-label)':';
+    /*float: left;*/
+    width: 80px;
+    display: block;
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-right: 16px;
+  }
+}
+
+tbody tr:hover {
+  /*display: block;*/
+  /*border: 1px solid #ccc;*/
+  /*margin: 12px;*/
+  background-color:rgb(230, 247, 255);
+}

@@ -1,0 +1,143 @@
+<nz-card nzTitle="客户视图" [nzBordered]="false">
+  <form nz-form>
+    <nz-form-item>
+      <div nz-row>
+        <div nz-col nzMd="24" nzLg="12">
+          <nz-form-label>客户信息查询</nz-form-label>
+          <label>
+            <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+              <input #queryInfo nz-input placeholder="输入客户名、身份证号、客户号查询"/>
+              <!--              [(ngModel)]="queryInfo"-->
+            </nz-input-group>
+            <ng-template #suffixIconButton>
+              <button nz-button (click)="queryCustomverView(queryInfo.value)" nzType="primary" nzSearch>
+                <i nz-icon nzType="search"></i>
+              </button>
+            </ng-template>
+          </label>
+        </div>
+      </div>
+    </nz-form-item>
+  </form>
+
+  <div nz-row nzGutter="16">
+     <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12" nzXl="6" *ngFor="let cv of custTable.itemsOnCurrentPage; let i = index" (click)="onSelect(cv)">
+      <div class="cust-card">
+        <div class="cust-card-body">
+          <div class="cust-card-img">
+              <img src="assets/images/001.jpg" alt="^_^">
+              <p style="">{{cv.customerName}}</p>
+          </div>
+          <div class="cust-card-content">
+            <div>
+              <p class="info-box-text">证件号码：{{cv.idNo}}</p>
+              <p class="info-box-text">客户号：{{cv.customerId}}</p>
+              <p class="info-box-text">联系电话：{{cv.phone}}</p>
+              <p class="info-box-text">地址：{{cv.address}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cust-card-info">
+          <ul>
+            <li style="display:inline-block; width: 50%">资产：{{cv.asset||0}}</li>
+            <li style="display:inline-block; width: 50%">负债：{{cv.balances||0}}</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="selectValue">
+    <nz-select [(ngModel)]="selectedValue" nzPlaceHolder="Choose" style="width: 180px;padding-bottom: 20px" (ngModelChange)="changeSelectValue(selectedValue)">
+      <nz-option nzValue=0 nzLabel="存款账户情况"></nz-option>
+      <nz-option nzValue=1 nzLabel="贷款账户情况"></nz-option>
+      <nz-option nzValue=2 nzLabel="近一年账户情况"></nz-option>
+      <nz-option nzValue=3 nzLabel="近一月账户情况"></nz-option>
+    </nz-select>
+  </div>
+
+  <nz-tabset [(nzSelectedIndex)]="tabSelectedIndex" (nzSelectChange)="changeTabSelect(tabSelectedIndex)">
+      <nz-tab nzTitle="存款账户情况">
+        <nz-table [nzData]="depTable.itemsOnCurrentPage">
+            <thead>
+            <tr>
+              <th>序号</th>
+              <th>客户号</th>
+              <th>客户名称</th>
+              <th>账、卡号</th>
+              <th>账户序号</th>
+              <th>产品名称</th>
+              <th>开户机构</th>
+              <th>开户日期</th>
+              <th>到期日期</th>
+              <th>可用余额</th>
+            </tr>
+            </thead>
+            <tbody>
+<!--              <tr *ngIf="!depTable.totalRows">-->
+<!--                <td colspan="4" class="text-center">No records found.</td>-->
+<!--              </tr>-->
+              <tr *ngFor="let dep of depTable.itemsOnCurrentPage; let i = index">
+                <td><span data-label="序号"></span>{{(depTable.currentPageIndex - 1) * depTable.pageSize + i + 1}}</td>  <!-- 序号 -->
+                <td><span data-label="客户号"></span>{{dep.customerId}}</td>
+                <td><span data-label="客户名称"></span>{{dep.accountName}}</td>
+                <td><span data-label="账、卡号"></span>{{dep.cardNo ? dep.cardNo : dep.passbookNo}}</td>
+                <td><span data-label="账户序号"></span>{{dep.accountSequence}}</td>
+                <td><span data-label="产品名称"></span>{{dep.prodType}} - {{dep.prodName}}</td>
+                <td><span data-label="开户机构"></span>{{dep.signBranch}} - {{dep.branchName}}</td>
+                <td><span data-label="开户日期"></span>{{dep.openDate| date:'yyyy-MM-dd'}}</td>
+                <td><span data-label="到期日期"></span>{{dep.dueDate| date:'yyyy-MM-dd'}}</td>
+                <td><span data-label="可用余额"></span>{{dep.aviableAmt}}</td>
+              </tr>
+            </tbody>
+        </nz-table>
+      </nz-tab>
+
+      <nz-tab nzTitle="贷款账户情况">
+          <nz-table [nzData]="loanTable.itemsOnCurrentPage">
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>客户号</th>
+                <th>客户名称</th>
+                <th>贷款账号</th>
+                <th>产品名称</th>
+                <th>贷款金额</th>
+                <th>贷款余额</th>
+                <th>贷款日期</th>
+                <th>到期日期</th>
+                <th>上结息日</th>
+                <th>贷款机构</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let loan of loanTable.itemsOnCurrentPage; let i = index" >
+                <td>{{(loanTable.currentPageIndex - 1)*loanTable.pageSize + i + 1}}</td>  <!-- 序号 -->
+                <td>{{loan.customerId}}</td>
+                <td>{{loan.accountName}}</td>
+                <td>{{loan.loanAcctNo}}</td>
+                <td>{{loan.prodType}} - {{loan.prodName}}</td>
+                <td>{{loan.amountLoan}}</td>
+                <td>{{loan.loanBalance}}</td>
+                <td>{{loan.openDate| date:'yyyy-MM-dd'}}</td>
+                <td>{{loan.dueDate| date:'yyyy-MM-dd'}}</td>
+                <td>{{loan.lastChargedDate| date:'yyyy-MM-dd'}}</td>
+                <td>{{loan.signBranch}} - {{loan.branchName}}</td>
+              </tr>
+            </tbody>
+          </nz-table>>
+      </nz-tab>
+
+      <nz-tab nzTitle="近一年账户情况">
+        <div echarts [options]="chartOption"></div>
+      </nz-tab>
+
+      <nz-tab nzTitle="近一个月账户情况">
+
+      </nz-tab>
+  </nz-tabset>
+
+</nz-card>
+

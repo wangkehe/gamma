@@ -1,0 +1,61 @@
+<nz-card nzTitle="CCIS流水查询" [nzBordered]="false">
+  <button nz-button nzType="primary" (click)="showModal()">添加查询</button>
+  <button nz-button nzType="dashed" (click)="reset()">重置</button>
+  <button nz-button nzType="default" (click)="exportExcel(selectAccount)" [disabled]="!isExport">导出Excel表格</button>
+  <button nz-button nzType="default" (click)="exportAll()">查询并导出全部流水</button>
+  <form nz-form [formGroup]="validateForm">
+    <nz-modal [(nzVisible)]="isVisible" nzTitle="添加查询账号" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+      <nz-form-item>
+        <nz-form-control>
+          <label>
+            <textarea formControlName="account" rows="5" placeholder="请输入要查询的账号" nz-input></textarea>
+          </label>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-modal>
+    <ng-template #modalFooter>
+      <button nz-button nzType="primary" (click)="addAccount(account.value)" [nzLoading]="isConfirmLoading">添加</button>
+      <button nz-button nzType="default" type='reset' (click)="resetForm($event)">重置</button>
+    </ng-template>
+  </form>
+  <div nz-row>
+    <nz-select nz-col nzSpan="6" nzShowSearch nzAllowClear nzPlaceHolder="请选择查询的账号" [(ngModel)]="selectAccount" (ngModelChange)="changeAccount(selectAccount)" >
+      <nz-option *ngFor="let account of queryAccounts" nzLabel="{{account}}" nzValue="{{account}}"></nz-option>
+    </nz-select>
+    <div nz-col nzSpan="6" nzOffset="4">
+        <input nz-input placeholder="搜索数据" [(ngModel)]="inputSearchValue" name="searchValue"/>
+    </div>
+  </div>
+  <nz-table #jourCcis nzSize="middle" [nzData]="this.table.itemsFiltered" [nzPageSizeOptions]=[10,20,100] [nzShowSizeChanger]="true">
+    <thead>
+    <tr>
+      <th>序号</th>
+      <th>交易流水</th>
+      <th>交易日期</th>
+      <th>交易时间</th>
+      <th>操作员</th>
+      <th>复核员</th>
+      <th>授权员</th>
+      <th>交易码</th>
+      <th>支票号</th>
+      <th>交易状态</th>
+      <th>交易金额</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let jour of jourCcis.data; let i = index">
+      <td>{{(table.currentPageIndex - 1)*table.pageSize + i + 1}}</td>  <!-- 序号 -->
+      <td>{{jour.trn_no}}</td>
+      <td>{{jour.trn_dat}}</td>
+      <td>{{jour.trn_time}}</td>
+      <td>{{jour.teller}}</td>
+      <td>{{jour.checker}}</td>
+      <td>{{jour.auth}}</td>
+      <td>{{jour.trn_code}}</td>
+      <td>{{jour.cq_num}}</td>
+      <td>{{jour.status}}</td>
+      <td>{{jour.trn_amt}}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</nz-card>

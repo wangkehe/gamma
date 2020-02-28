@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-sm-5">
+    <div *ngIf="maxPageIndex>0" class="dataTables_info">第{{currentPageNumber}}/{{maxPageIndex}}页，共计{{tableSize}}条记录
+    </div>
+  </div>
+  <div class="col-sm-7">
+    <div class="table_pagination">
+      <ul class="pagination">
+        <li [class.disabled]="currentPageNumber === 1 || !maxPageIndex">
+          <a href (click)="setCurrentPage(1, $event)" aria-label="Previous">
+            <!--<span aria-hidden="true">首页</span>-->首页
+          </a>
+        </li>
+        <li [class.disabled]="currentPageNumber === 1 || !maxPageIndex">
+          <a href aria-label="Previous"
+             (click)="setCurrentPage(currentPageNumber - 1, $event)">
+            <span aria-hidden="true">‹</span>
+          </a>
+        </li>
+        <li *ngFor="let index of range(pageStartNumber, pageEndNumber)"
+            [class.active]="currentPageNumber === index">
+          <a href (click)="setCurrentPage(index, $event)">
+            <span aria-hidden="true">{{ index }}</span>
+          </a>
+        </li>
+        <li [class.disabled]="currentPageNumber === maxPageIndex
+                                      || !maxPageIndex">
+          <a href (click)="setCurrentPage(currentPageNumber + 1, $event)" aria-label="Last">
+            <span aria-hidden="true">›</span>
+          </a>
+        </li>
+        <li [class.disabled]="currentPageNumber === maxPageIndex
+                                      || !maxPageIndex">
+          <a href (click)="setCurrentPage(maxPageIndex, $event)" aria-label="Last">
+            <span aria-hidden="true">末页</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
