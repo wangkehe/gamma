@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bf1ecc1b-8833-4481-b2c6-a7d247adfdcf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="gamma" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="TypeScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1VycrfZk6hS1g8T2yaUEdowr9Ic" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/qrcode" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/node_modules/protractor" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="D:\WKH\Develop\project\js\gamma\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WKH\Develop\project\js\gamma\src\assets\qrcode" />
+      <recent name="D:\WKH\Develop\project\js\gamma\test" />
+      <recent name="D:\WKH\Develop\project\js\gamma\src\app\layout\merchant" />
+      <recent name="D:\WKH\Develop\project\js\gamma\src\app\layout\dataquery" />
+      <recent name="D:\WKH\Develop\project\js\gamma\src\app\core" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WKH\Develop\project\js\gamma\src\app\layout\dataquery" />
+      <recent name="D:\WKH\Develop\project\js\gamma" />
+      <recent name="D:\WKH\Develop\project\js\gamma\src\app\core" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Tests (gamma)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="E2E Tests (gamma)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/node_modules/protractor" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bf1ecc1b-8833-4481-b2c6-a7d247adfdcf" name="Default Changelist" comment="" />
+      <created>1578228975968</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578228975968</updated>
+      <workItem from="1578228977398" duration="1411000" />
+      <workItem from="1578311478823" duration="4808000" />
+      <workItem from="1578403441005" duration="294000" />
+      <workItem from="1578403763678" duration="325000" />
+      <workItem from="1578404139132" duration="4271000" />
+      <workItem from="1578655539017" duration="28526000" />
+      <workItem from="1579179393835" duration="584000" />
+      <workItem from="1579180341002" duration="38635000" />
+      <workItem from="1580730506153" duration="8185000" />
+      <workItem from="1580816732402" duration="17671000" />
+      <workItem from="1580894752452" duration="21153000" />
+      <workItem from="1580988536482" duration="8306000" />
+      <workItem from="1581046443940" duration="12750000" />
+      <workItem from="1581507294975" duration="2850000" />
+      <workItem from="1581510223809" duration="3226000" />
+      <workItem from="1581763673940" duration="1733000" />
+      <workItem from="1582282980598" duration="1072000" />
+      <workItem from="1582287418682" duration="26525000" />
+      <workItem from="1582804572292" duration="872000" />
+      <workItem from="1582888515826" duration="618000" />
+      <workItem from="1582889544792" duration="539000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#Notifications" timestamp="1582805410531">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1582805410531" />
+    <state x="428" y="79" key="CommitChangelistDialog2" timestamp="1582890008939">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="334" y="73" key="CommitChangelistDialog2/0.0.1500.960@0.0.1500.960" timestamp="1579007113224" />
+    <state x="428" y="79" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582890008939" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1582805410875">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582805410875" />
+    <state x="680" y="256" key="FileChooserDialogImpl" timestamp="1581507385744">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="531" y="236" key="FileChooserDialogImpl/0.0.1500.960@0.0.1500.960" timestamp="1579182675767" />
+    <state x="680" y="256" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581507385744" />
+    <state x="736" y="230" key="RollbackChangesDialog" timestamp="1582805425516">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="736" y="230" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582805425516" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1582889923617">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582889923617" />
+    <state x="701" y="254" key="VcsDiffUtil.ChangesDialog" timestamp="1582805341536">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="701" y="254" key="VcsDiffUtil.ChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582805341536" />
+    <state x="778" y="254" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1582890005181">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="778" y="254" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582890005181" />
+    <state x="256" y="117" width="641" height="801" key="find.popup" timestamp="1579004700820">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="256" y="117" width="641" height="801" key="find.popup/0.0.1500.960@0.0.1500.960" timestamp="1579004700820" />
+    <state x="669" y="311" key="git4idea.merge.GitPullDialog" timestamp="1582805374036">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="311" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582805374036" />
+    <state x="753" y="384" key="git4idea.rebase.GitRebaseDialog" timestamp="1582805247564">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="753" y="384" key="git4idea.rebase.GitRebaseDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582805247564" />
+    <state x="526" y="148" width="861" height="733" key="search.everywhere.popup" timestamp="1582805449076">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="411" y="137" width="672" height="676" key="search.everywhere.popup/0.0.1500.960@0.0.1500.960" timestamp="1579617329803" />
+    <state x="526" y="148" width="861" height="733" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582805449076" />
+  </component>
+</project>
