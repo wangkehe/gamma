@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bf1ecc1b-8833-4481-b2c6-a7d247adfdcf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +26,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
   <component name="ProjectId" id="1VycrfZk6hS1g8T2yaUEdowr9Ic" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -35,6 +40,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
@@ -144,6 +150,10 @@
       <workItem from="1582804572292" duration="872000" />
       <workItem from="1582888515826" duration="618000" />
       <workItem from="1582889544792" duration="3467000" />
+      <workItem from="1582893583071" duration="882000" />
+      <workItem from="1585660292232" duration="3922000" />
+      <workItem from="1585720701709" duration="2935000" />
+      <workItem from="1585724492742" duration="576000" />
     </task>
     <task id="LOCAL-00001" summary="first commit.&#10;202002281941">
       <created>1582890326852</created>
