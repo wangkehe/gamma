@@ -1,8 +1,6 @@
 import {Component} from '@angular/core';
 import {SimpleDataGrid} from '../../shard/SimpleDataGrid/simpleDataGrid';
-import {JournalCCIS} from '../dataQuery/journal.service';
-import {MerchantView, MerchantService} from './merchant.service';
-import {DcImpSch} from '../dataManage/impSchList.component';
+import {MerchantService, MerchantView} from './merchant.service';
 
 @Component({
   selector: 'app-merchant-info',
@@ -15,6 +13,7 @@ export class MerchantInformationComponent {
   selectBankCode: any;
   selectMchtProp: any;
   selectedRecord: MerchantView;
+  selectedMchtInfo: MerchantInfoDetail;
   filterValue: MerchantView;
   inputSearchValue: string;
   tabIndex: any;
@@ -26,6 +25,7 @@ export class MerchantInformationComponent {
     this.tabIndex = 0;
     this.queryMerchantView();
     this.selectedRecord = new MerchantView();
+    this.selectedMchtInfo = new MerchantInfoDetail();
     this.filterValue = new MerchantView();
   }
 
@@ -89,10 +89,62 @@ export class MerchantInformationComponent {
       this.curIndex = this.curIndex < 0 ? 0 : this.curIndex;
       this.selectedRecord = this.table.itemsFiltered[this.curIndex];
     }
+    this.merchantService.queryMerchantInfo(this.selectedRecord.merchantId)
+      .subscribe(results => {
+        this.selectedMchtInfo = results.datas;
+        console.log(this.selectedMchtInfo);
+      });
   }
 
   showDetail(info: MerchantView) {
     this.selectedRecord = info;
     this.tabIndex = 1;
   }
+}
+
+
+export class MerchantInfoDetail {
+  mchtOrgId: string;
+  mchtId: string;
+  mchtProp: string;
+  mchtType: string;
+  mchtName: string;
+  mchtSimpleName: string;
+  mchtStat: string;
+  mchtMngNo: string;
+  mchtAreaNo: string;
+  mchtPersonName: string;
+  mchtPhone: string;
+  mchtContAddr: string;
+  crtTlr: string;
+  crtDateTime: string;
+  regDate: string;
+  mchtMngScope: string;
+  mchtLicnType: string;
+  mchtLicnNo: string;
+  mchtArtifName: string;
+  mchtArtifType: string;
+  mchtArtifId: string;
+  mchtArtifPhone: string;
+  setlSymbol: string;
+  setlAcctName: string;
+  setlAcctNo: string;
+  setlCertType: string;
+  setlCertNo: string;
+  mchtTypeCode1: string;
+  mchtTypeCode2: string;
+  mchtLng: string;
+  mchtLat: string;
+  hfLimitOne: string;
+  hfLimitDay: string;
+  dailySales: string;
+  monthSales: string;
+  rollType: string;
+  rollStatus: string;
+  rollDate: string;
+  isCredit: string;
+  isDelay: string;
+  remark: string;
+  batchNo: string;
+  qrNum: string;
 }

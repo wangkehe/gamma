@@ -6,6 +6,7 @@ import {Injectable} from '@angular/core';
 export class MerchantService {
   private mvListUrl = 'api/mcht/view';
   private mvSortListUrl = 'api/mcht/sortView';
+  private mechInfoUrl = 'api/mcht/info';
 
   constructor(
     private http: HttpClient
@@ -19,6 +20,10 @@ export class MerchantService {
   sortMerchantView(order: string, orderType: string): Observable<any> {
     return this.http
       .get(this.mvSortListUrl + '?o=' + order + '&ot=' + orderType);
+  }
+
+  queryMerchantInfo(mchtId: string): Observable<any> {
+    return this.http.get(this.mechInfoUrl + '?mchtId=' + mchtId);
   }
 }
 

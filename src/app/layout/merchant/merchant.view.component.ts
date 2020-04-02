@@ -156,3 +156,4 @@ export class MerchantViewComponent {
     this.tabIndex = 0;
   }
 }
+

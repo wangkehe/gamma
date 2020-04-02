@@ -86,7 +86,7 @@
           <div nz-col nzSpan="16" style="margin-left: 18px;">
             <div nz-row nzType="flex" nzJustify="start">
               <div nz-col nzSpan="6" style="font-size: 18px;">
-                {{this.selectedRecord.merchantName}}
+                {{this.selectedMchtInfo.mchtName}}
               </div>
               <div nz-col nzSpan="2"></div>
               <nz-button-group [nzSize]="'small'" style="padding-left: 32px;">
@@ -96,10 +96,10 @@
             </div>
 
             <div nz-row style="font-size: 14px; color: rgba(0,0,0,0.45);">
-              {{this.selectedRecord.merchantId}}
+              {{this.selectedMchtInfo.mchtId}}
             </div>
             <div nz-row style="font-size: 14px; color: rgba(0,0,0,0.45);">
-              {{this.selectedRecord.mchtProp}}商户
+              {{this.selectedMchtInfo.mchtProp}}商户
             </div>
           </div>
         </div>
@@ -107,45 +107,71 @@
 
       <nz-collapse-panel nzHeader="商户详细信息" nzActive="true">
         <div nz-row>
-            <nz-descriptions [nzTitle]="mchtDetail">
-              <nz-descriptions-item nzTitle="所属网点">{{this.selectedRecord.bankCode}}</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="商户简称">{{this.selectedRecord.merchantName}}</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="客户经理">张小三</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="注册时间">{{this.selectedRecord.regDate}}</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="所属区域">三都县</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="经营地址">{{this.selectedRecord.address}}</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="上交易日">{{this.selectedRecord.lastTxnDate}}</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="商户证件类型"></nz-descriptions-item>
-              <nz-descriptions-item nzTitle="商户证件号码"></nz-descriptions-item>
-              <nz-descriptions-item nzTitle="联系人姓名"></nz-descriptions-item>
-              <nz-descriptions-item nzTitle="联系人手机"></nz-descriptions-item>
-              <nz-descriptions-item nzTitle="法人姓名"></nz-descriptions-item>
-              <nz-descriptions-item nzTitle="法人电话"></nz-descriptions-item>
-              <nz-descriptions-item nzTitle="法人证件类型"></nz-descriptions-item>
-              <nz-descriptions-item nzTitle="法人证件号码"></nz-descriptions-item>
+          <nz-descriptions [nzTitle]="mchtDetail" [nzColumn]="{ xxl: 4, xl: 4, lg: 4, md: 4, sm: 2, xs: 1 }">
+            <nz-descriptions-item nzTitle="所属网点">{{this.selectedMchtInfo.mchtOrgId}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="商户简称">{{this.selectedMchtInfo.mchtSimpleName}}</nz-descriptions-item>
+            <!--<nz-descriptions-item nzTitle="商户性质">{{this.selectedMchtInfo.mchtType}}</nz-descriptions-item>-->
+            <nz-descriptions-item nzTitle="主商户号">{{this.selectedMchtInfo.mchtMngNo}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="客户经理">{{this.selectedMchtInfo.crtTlr}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="注册时间">{{this.selectedMchtInfo.regDate}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="所属区域">{{this.selectedMchtInfo.mchtAreaNo}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="经营地址">{{this.selectedMchtInfo.mchtContAddr}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="经营范围">{{this.selectedMchtInfo.mchtMngScope}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="商户状态" [nzSpan]="2">{{this.selectedMchtInfo.mchtStat}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="结算标志" [nzSpan]="2">{{this.selectedMchtInfo.setlSymbol}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="商户证件类型">{{this.selectedMchtInfo.mchtLicnType}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="商户证件号码">{{this.selectedMchtInfo.mchtLicnNo}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="联系人姓名">{{this.selectedMchtInfo.mchtPersonName}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="联系人手机">{{this.selectedMchtInfo.mchtPhone}}</nz-descriptions-item>
 
-              <nz-descriptions-item nzTitle="结算标志">T0</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="账户户名">T0</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="账户账号">T0</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="账户证件类型">T0</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="账户证件号码">T0</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="法人证件类型">{{this.selectedMchtInfo.mchtArtifType}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="法人证件号码">{{this.selectedMchtInfo.mchtArtifId}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="法人姓名">{{this.selectedMchtInfo.mchtArtifName}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="法人电话">{{this.selectedMchtInfo.mchtArtifPhone}}</nz-descriptions-item>
 
-              <!-- 交易分析 -->
-              <nz-descriptions-item nzTitle="上日交易笔数">T0</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="上日交易金额">T0</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="本周交易笔数">T0</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="本周交易金额">T0</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="本年交易笔数">T0</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="本年交易金额">T0</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="最小交易金额">T0</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="最大交易金额">T0</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="平均交易金额">T0</nz-descriptions-item>
-              <nz-descriptions-item nzTitle="消费交易占比"></nz-descriptions-item>
-              <nz-descriptions-item nzTitle="微信交易占比"></nz-descriptions-item>
-              <nz-descriptions-item nzTitle="支付宝交易占比"></nz-descriptions-item>
-              <nz-descriptions-item nzTitle="银联交易占比"></nz-descriptions-item>
-
-            </nz-descriptions>
+            <nz-descriptions-item nzTitle="账户证件类型">{{this.selectedMchtInfo.setlCertType}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="账户证件号码">{{this.selectedMchtInfo.setlCertNo}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="账户户名">{{this.selectedMchtInfo.setlAcctName}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="账户账号">{{this.selectedMchtInfo.setlAcctNo}}</nz-descriptions-item>
+          </nz-descriptions>
+        </div>
+        <div nz-row style="border-top: 1px dashed; padding-top: 5px;">
+          <nz-descriptions [nzColumn]="{ xxl: 4, xl: 4, lg: 4, md: 4, sm: 2, xs: 1 }">
+            <nz-descriptions-item nzTitle="商户类型码1">{{this.selectedMchtInfo.mchtTypeCode1}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="商户类型码1">{{this.selectedMchtInfo.mchtTypeCode2}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="纬度">{{this.selectedMchtInfo.mchtLat}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="经度">{{this.selectedMchtInfo.mchtLng}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="单笔限额">{{this.selectedMchtInfo.hfLimitOne}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="单日限额">{{this.selectedMchtInfo.hfLimitDay}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="日销售额">{{this.selectedMchtInfo.dailySales}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="月销售额">{{this.selectedMchtInfo.monthSales}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="巡检类型">{{this.selectedMchtInfo.rollType}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="巡检状态">{{this.selectedMchtInfo.rollStatus}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="巡检日期">{{this.selectedMchtInfo.rollDate}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="是否支持信用卡">{{this.selectedMchtInfo.isCredit}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="是否延迟清算">{{this.selectedMchtInfo.isDelay}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="备注">{{this.selectedMchtInfo.remark}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="二维码批次号">{{this.selectedMchtInfo.batchNo}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="二维码号码">{{this.selectedMchtInfo.qrNum}}</nz-descriptions-item>
+          </nz-descriptions>
+        </div>
+        <div nz-row style="border-top: 1px dashed; padding-top: 5px;">
+          <!-- 交易分析 -->
+          <nz-descriptions [nzColumn]="{ xxl: 4, xl: 4, lg: 4, md: 4, sm: 2, xs: 1 }">
+            <nz-descriptions-item nzTitle="上日交易笔数">T0</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="上日交易金额">T0</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="本周交易笔数">T0</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="本周交易金额">T0</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="本年交易笔数">T0</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="本年交易金额">T0</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="最小交易金额">T0</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="最大交易金额">T0</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="平均交易金额">T0</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="消费交易占比"></nz-descriptions-item>
+            <nz-descriptions-item nzTitle="微信交易占比"></nz-descriptions-item>
+            <nz-descriptions-item nzTitle="支付宝交易占比"></nz-descriptions-item>
+            <nz-descriptions-item nzTitle="银联交易占比"></nz-descriptions-item>
+          </nz-descriptions>
         </div>
       </nz-collapse-panel>
 
