@@ -1,6 +1,7 @@
 {
   "/api": {
-    "target": "http://localhost:8080/Alpha/",
+
+    "target": "http://localhost:8090/Alpha/",
     "secure": false,
     "changeOrigin": true,
     "pathRewrite": {
