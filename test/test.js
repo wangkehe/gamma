@@ -131,9 +131,9 @@ var treeMeun = [{
     selected: false
   }, {
     id: 50013,
-    title: '交易统计',
+    title: '统计报表',
     icon: 'fa fa-files-o',
-    url: '/dba/imp',
+    url: '/mcht/report',
     selected: false
   }]
 }];
