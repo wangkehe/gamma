@@ -7,6 +7,7 @@ export class MerchantService {
   private mvListUrl = 'api/mcht/view';
   private mvSortListUrl = 'api/mcht/sortView';
   private mechInfoUrl = 'api/mcht/info';
+  private reportUrl = 'api/mcht/report';
 
   constructor(
     private http: HttpClient
@@ -24,6 +25,10 @@ export class MerchantService {
 
   queryMerchantInfo(mchtId: string): Observable<any> {
     return this.http.get(this.mechInfoUrl + '?mchtId=' + mchtId);
+  }
+
+  queryBankReport(startDate: string, endDate: string): Observable<any> {
+    return this.http.get(this.reportUrl + '?sd=' + startDate + '&ed=' + endDate);
   }
 }
 

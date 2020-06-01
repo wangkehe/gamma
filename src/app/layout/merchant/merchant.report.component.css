@@ -1,0 +1,9 @@
+[nz-icon] {
+  margin-right: 6px;
+  font-size: 20px;
+}
+
+[nz-icon]:hover {
+  transform: scale(1.1);
+}
+

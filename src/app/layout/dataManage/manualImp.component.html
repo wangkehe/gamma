@@ -1,45 +1,19 @@
-<section class="content">
-  <div class="box">
-    <div class="box-body">
-      <div class="form-horizontal">
-
-        <div class="form-group">
-          <label class="col-sm-1 control-label">所属系统</label>
-          <div class="col-sm-3">
-            <select class="form-control">
-              <option>所有系统</option>
-              <option>OFCR|核心系统</option>
-              <option>ATMP|ATM系统</option>
-              <option>LOAN|信贷系统</option>
-              <option>CETS|支付系统</option>
-            </select>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12">
-          <table class="table table-condensed table-hover">
-            <thead>
-            <tr>
-              <th>表名称</th>
-              <th>表描述</th>
-              <th>导入时间</th>
-              <th>数据日期</th>
-              <th>数据类型</th>
-              <th>匹配文件</th>
-            </tr>
-            </thead>
-
-            <tbody>
-
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-
+<nz-card nzTitle="数据导入管理" [nzBordered]="false">
+  <div nz-row>
+    <!--    <div nz-col nzSpan="6" style="width: 180px;padding-bottom: 20px">-->
+    <nz-select nz-col nzSpan="6" nzShowSearch nzAllowClear nzPlaceHolder="导入任务名称" >
+      <nz-option nzLabel="所有系统" nzValue=0></nz-option>
+      <nz-option nzLabel="OFCR|核心系统" nzValue=1></nz-option>
+      <nz-option nzLabel="ATMP|ATM系统" nzValue=2></nz-option>
+      <nz-option nzLabel="LOAN|信贷系统" nzValue=3></nz-option>
+      <nz-option nzLabel="CETS|支付系统" nzValue=4></nz-option>
+    </nz-select>
+    <!--    </div>-->
+    <div nz-col nzSpan="6" nzOffset="4">
+      <label>
+        <input nz-input placeholder="搜索数据" />
+      </label>
     </div>
   </div>
-</section>
+</nz-card>
+
