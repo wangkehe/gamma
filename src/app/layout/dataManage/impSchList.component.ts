@@ -8,7 +8,7 @@ import {SimpleDataGrid} from '../../shard/SimpleDataGrid/simpleDataGrid';
 @Component({
   selector: 'app-importdb',
   templateUrl: './impSchList.component.html',
-  styleUrls: ['./importdb.component.css']
+  styleUrls: ['./dataManage.component.css']
 })
 export class ImpSchListComponent implements OnInit {
   table: SimpleDataGrid<DcImpSch>;

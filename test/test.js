@@ -101,13 +101,13 @@ var treeMeun = [{
   isOpen: false,
   items: [{
     id: 40011,
-    title: '数据下发情况',
+    title: '下发数据情况',
     icon: 'fa fa-files-o',
-    url: '/dm/dba',
+    url: '/dm/ftpData',
     selected: false
   }, {
     id: 40012,
-    title: '数据手工导入',
+    title: '数据导入管理',
     icon: 'fa fa-files-o',
     url: '/dm/imp',
     selected: false

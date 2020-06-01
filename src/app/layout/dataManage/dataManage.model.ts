@@ -1,6 +1,6 @@
 export class DcImpSch {
-  tblName: String;
-  filenameRule: String;
+  tblName: string;
+  filenameRule: string;
   lastImportDate: string;
   fileDate: string;
   isAutoUpdate: string;

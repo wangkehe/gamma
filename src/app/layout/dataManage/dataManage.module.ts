@@ -15,10 +15,11 @@ import {FileTypePipe} from './dataManage.pipe';
 // import {SimpleDataGridModule} from '../../shared/SimpleDataGrid/simpleDataGrid.module';
 import {ManualImpComponent} from './manualImp.component';
 import {NgZorroAntdModule} from 'ng-zorro-antd';
+import {FtpDataComponent} from './ftpData.component';
 
 @NgModule({
   declarations: [
-    ImpSchListComponent, ManualImpComponent, FileTypePipe
+    ImpSchListComponent, ManualImpComponent, FtpDataComponent, FileTypePipe
   ],
   imports: [
     DataManageRoutingModule, CommonModule, FormsModule, HttpClientModule, NgZorroAntdModule, // , SimpleDataGridModule
