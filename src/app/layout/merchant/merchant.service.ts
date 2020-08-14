@@ -8,6 +8,7 @@ export class MerchantService {
   private mvSortListUrl = 'api/mcht/sortView';
   private mechInfoUrl = 'api/mcht/info';
   private reportUrl = 'api/mcht/report';
+  private baseInfoUrl = 'api/mcht/base';
 
   constructor(
     private http: HttpClient
@@ -30,6 +31,10 @@ export class MerchantService {
   queryBankReport(startDate: string, endDate: string): Observable<any> {
     return this.http.get(this.reportUrl + '?sd=' + startDate + '&ed=' + endDate);
   }
+
+  queryMerchantBaseInfo(queryString: string): Observable<any> {
+    return this.http.get(this.baseInfoUrl + '?qu=' + queryString);
+  }
 }
 
 export class MerchantView {
@@ -45,3 +50,5 @@ export class MerchantView {
   totalCountOfYear: number;
   sumTxnAmtOfYear: number;
 }
+
+

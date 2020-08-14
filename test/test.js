@@ -125,12 +125,18 @@ var treeMeun = [{
     selected: false
   }, {
     id: 50012,
+    title: '基本信息',
+    icon: 'fa fa-files-o',
+    url: '/mcht/base',
+    selected: false
+  }, {
+    id: 50013,
     title: '商户信息',
     icon: 'fa fa-files-o',
     url: '/mcht/info',
     selected: false
   }, {
-    id: 50013,
+    id: 50014,
     title: '统计报表',
     icon: 'fa fa-files-o',
     url: '/mcht/report',

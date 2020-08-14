@@ -7,24 +7,7 @@
   </nz-card-tab>
 
   <div *ngIf="tabIndex===0">
-    <div nz-row>
-      <!--    <div nz-col nzSpan="6" style="width: 180px;padding-bottom: 20px">-->
-      <nz-select nz-col nzSpan="6" nzShowSearch nzAllowClear nzPlaceHolder="请选择系统类型" [(ngModel)]="selectedValue"
-                 (ngModelChange)="changeSelectValue(selectedValue)">
-        <nz-option nzLabel="所有系统" nzValue=0></nz-option>
-        <nz-option nzLabel="OFCR|核心系统" nzValue=1></nz-option>
-        <nz-option nzLabel="ATMP|ATM系统" nzValue=2></nz-option>
-        <nz-option nzLabel="LOAN|信贷系统" nzValue=3></nz-option>
-        <nz-option nzLabel="CETS|支付系统" nzValue=4></nz-option>
-      </nz-select>
-      <!--    </div>-->
-      <div nz-col nzSpan="6" nzOffset="4">
-        <label>
-          <input nz-input placeholder="搜索数据" [(ngModel)]="inputSearchValue"
-                 (ngModelChange)="changeInputValue(inputSearchValue)"/>
-        </label>
-      </div>
-    </div>
+
     <nz-table #schData nzSize="middle" [nzData]="this.table.itemsFiltered" [nzPageSizeOptions]=[10,20,100]
               [nzShowSizeChanger]="true">
       <thead>
@@ -52,7 +35,71 @@
     </nz-table>
   </div>
 
+
+
+
   <div *ngIf="tabIndex===1">
+    <nz-table #taskData nzSize="middle" [nzData]="listOfDcImpTask" [nzPageSize]="10">
+      <thead>
+        <tr>
+          <th></th>
+          <th>任务ID</th>
+          <th>任务名称</th>
+          <th>是否自动导入</th>
+          <th>是否启用</th>
+          <th>更新频率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-template ngFor let-data [ngForOf]="taskData.data">
+          <tr>
+            <td nzShowExpand [(nzExpand)]="data.expand"></td>
+            <td>{{data.schNo}}</td>
+            <td>{{data.schName}}</td>
+            <td>{{data.isAutoUpdate}}</td>
+            <td>{{data.isActive}}</td>
+            <td>{{data.freq}}</td>
+          </tr>
+          <tr [nzExpand]="data.expand">
+            <td colspan="6" style="padding: 16px">
+                <nz-table #innerTable nzSize="middle" [nzData]="listOfDcImpSch" [nzShowPagination]="false">
+                  <thead>
+                    <tr>
+                      <th
+                        [nzShowCheckbox]="true"
+                        [nzChecked]="checked"
+                        [nzIndeterminate]="indeterminate"
+                        (nzCheckedChange)="onAllChecked($event)"
+                      ></th>
+                      <th>表名称</th>
+                      <th>对应文件</th>
+                      <th>是否自动导入</th>
+                      <th>是否启用</th>
+                      <th>上次导入日期</th>
+                      <th>操作员</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let data of innerTable.data">
+                      <td
+                        [nzShowCheckbox]="true"
+                        [nzChecked]="setOfCheckedId.has(data.tblName)"
+                        (nzCheckedChange)="onItemChecked(data.tblName, $event)"></td>
+                      <td>{{data.tblName}}</td>
+                      <td>{{data.filenameRule}}</td>
+                      <td>{{data.lastImportDate| date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                      <td>{{data.fileDate}}</td>
+                      <td>{{data.fileType| fileType}}</td>
+                      <td>{{data.filenameRule}}</td>
+                    </tr>
+                  </tbody>
+                </nz-table>
+            </td>
+          </tr>
+         </ng-template>
+      </tbody>
+    </nz-table>
+
     <div nz-row>
       <nz-select nz-col nzSpan="4" nzShowSearch nzAllowClear nzPlaceHolder="请选择导入任务" [(ngModel)]="taskSelectedValue"
                  (ngModelChange)="changeSelectValue(taskSelectedValue)">
@@ -67,42 +114,21 @@
       </nz-date-picker>
       <button nz-button nzType="primary" style="margin-left: 12px;" [disabled]="true">手工导入</button>
     </div>
+<!--
 
-    <nz-table #schData nzSize="middle" [nzData]="this.table.itemsFiltered" [nzPageSizeOptions]=[10,20,100]
-              [nzShowSizeChanger]="true">
-      <thead>
-      <tr>
-        <th
-          [nzShowCheckbox]="true"
-          [nzChecked]="checked"
-          [nzIndeterminate]="indeterminate"
-          (nzCheckedChange)="onAllChecked($event)"
-        ></th>
-        <th>任务ID</th>
-        <th>任务描述</th>
-        <th>是否自动导入</th>
-        <th>是否启用</th>
-        <th>上次导入日期</th>
-        <th>操作员</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let data of schData.data; let i = index" (dblclick)="openNewDialog()">
-        <td
-          [nzShowCheckbox]="true"
-          [nzChecked]="setOfCheckedId.has(data.tblName)"
-          (nzCheckedChange)="onItemChecked(data.tblName, $event)"></td>
-        <td>{{data.tblName}}</td>
-        <td>--</td>
-        <td>{{data.lastImportDate| date:'yyyy-MM-dd HH:mm:ss'}}</td>
-        <td>{{data.fileDate}}</td>
-        <td>{{data.fileType| fileType}}</td>
-        <td>{{data.filenameRule}}</td>
-      </tr>
-      </tbody>
+    <nz-descriptions nzTitle="智能收单数据" style="margin: 12px;">
+      <nz-descriptions-item nzTitle="任务ID">1</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="是否自动更新">是</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="是否启用">是</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="更新频率">日</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="上次更新日期">2020-05-30</nz-descriptions-item>
+      <nz-descriptions-item nzTitle="操作人员">System</nz-descriptions-item>
+    </nz-descriptions>
+-->
 
-    </nz-table>
+
 
   </div>
 </nz-card>
+
 

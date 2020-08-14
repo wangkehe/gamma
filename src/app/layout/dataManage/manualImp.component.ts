@@ -13,6 +13,9 @@ import {addDays, startOfMonth} from 'date-fns';
   styleUrls: ['./dataManage.component.css']
 })
 export class ManualImpComponent implements OnInit {
+  listOfDcImpTask: DcImpTask[] = [];
+  listOfDcImpSch: DcImpSch[] = [];
+
   table: SimpleDataGrid<DcImpSch>;
   data: DcImpSch[] = [];
   dateValue: Date;
@@ -84,7 +87,30 @@ export class ManualImpComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    // 初始化测试数据
+    for (let i = 0; i < 5; i++) {
+      this.listOfDcImpTask.push({
+        schNo: 1000 + i,
+        schName: '任务',
+        isAutoUpdate: '是',
+        isActive: '是',
+        freq: '1-每日',
+        expand: false
+      });
+    }
+    for (let i = 0; i < 5; i++) {
+      this.listOfDcImpSch.push({
+        tblName: 'Table' + i,
+        filenameRule: 'fileNameRule' + i,
+        lastImportDate: 123456789,
+        fileDate: '20200531',
+        isAutoUpdate: '是',
+        isActive: '是',
+        dataInterface: '1',
+        fileType: '2',
+        ctrlFilename: 'ctrlFilename' + i
+      });
+    }
   }
 
   updateCheckedSet(tblName: string, checked: boolean): void {
@@ -99,7 +125,7 @@ export class ManualImpComponent implements OnInit {
   refreshCheckedStatus(): void {
     // const listOfEnabledData = this.listOfCurrentPageData.filter(({ disabled }) => !disabled);
     // this.checked = listOfEnabledData.every(({ id }) => this.setOfCheckedId.has(id));
-    this.checked = this.data.every(({tblName}) => this.setOfCheckedId.has(tblName));
+    this.checked = this.listOfDcImpSch.every(({tblName}) => this.setOfCheckedId.has(tblName));
     // this.indeterminate = listOfEnabledData.some(({ id }) => this.setOfCheckedId.has(id)) && !this.checked;
   }
 
@@ -110,7 +136,7 @@ export class ManualImpComponent implements OnInit {
 
   onAllChecked(checked: boolean): void {
     // this.listOfCurrentPageData.filter(({ disabled }) => !disabled).forEach(({ id }) => this.updateCheckedSet(id, checked));
-    this.data.forEach(( {tblName }) =>this.updateCheckedSet(tblName, checked));
+    this.listOfDcImpSch.forEach(( {tblName }) => this.updateCheckedSet(tblName, checked));
     this.refreshCheckedStatus();
   }
 
@@ -121,13 +147,22 @@ export class ManualImpComponent implements OnInit {
 export class DcImpSch {
   tblName: string;
   filenameRule: string;
-  lastImportDate: BigInteger;
+  lastImportDate: number;
   fileDate: string;
   isAutoUpdate: string;
   isActive: string;
   dataInterface: string;
   fileType: string;
   ctrlFilename: string;
+}
+
+interface DcImpTask {
+  schNo: number;
+  schName: string;
+  isAutoUpdate: string;
+  isActive: string;
+  freq: string;
+  expand: boolean;
 }
 
 // export interface Data {
