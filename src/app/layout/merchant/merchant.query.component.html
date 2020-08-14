@@ -1,0 +1,37 @@
+<nz-card nzTitle="收单信息查询" [nzBordered]="false">
+  <form nz-form >
+    <nz-form-item>
+        <nz-form-control [nzSm]="12" [nzXs]="24">
+          <div nz-row [nzGutter]="16">
+            <div nz-col [nzSpan]="16">
+              <nz-input-group [nzSuffix]="suffixIconButton">
+                <label>
+                  <input #queryInfo nz-input placeholder="输入客户名、身份证号、商户名称查询" [(ngModel)]="searchValue" />
+                </label>
+              </nz-input-group>
+                <ng-template #suffixIconButton>
+                    <i nz-icon nzType="camera"></i>
+                </ng-template>
+            </div>
+            <div nz-col [nzSpan]="8">
+              <button nz-button (click)="queryMchtBaseInfo(queryInfo.value)" [disabled]="queryInfo.value === ''">查询</button>
+            </div>
+          </div>
+        </nz-form-control>
+    </nz-form-item>
+  </form>
+
+  <nz-descriptions *ngFor="let info of baseInfoList" nzTitle="{{ info.mchtName }}" style="margin:10px;border-bottom: 1px solid #888;">
+    <nz-descriptions-item nzTitle="平台">{{ info.platform }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="商户类型">{{ info.mchtProp }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="状态">{{ info.mchtStat }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="商户编号">{{ info.mchtId }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="所属网点">{{ info.mchtOrgId }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="商户简称">{{ info.mchtSimpleName }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="经营地址">{{ info.mchtContAddr }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="注册日期">{{ info.regDate | date:'yyyyMMdd'}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="联系人">{{ info.mchtPersonName}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="联系电话">{{ info.mchtPhone }}</nz-descriptions-item>
+  </nz-descriptions>
+
+</nz-card>
